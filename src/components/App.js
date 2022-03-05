@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react'
+import Songs from './Songs';
+
 const App =()=>{
-    return (
-        <div>
-            This is an App component
-        </div>
-    );
+    return <Songs/>
 }
 export default App;
