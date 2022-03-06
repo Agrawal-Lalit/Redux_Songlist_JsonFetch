@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {SelectSong,AddSong} from '../actions'
+import {SelectSong,AddSong, FetchSong} from '../actions'
+import {Show}  from './Show';
 
 const ref1=React.createRef(null);
 const ref2=React.createRef(null);
 class Songs extends Component {
 
     state={newSongName:'',newSongDesc:''};
+
+    componentDidMount(){
+        this.props.FetchSong({});
+    }
     render() {
     return <div className="ui divided list">
         <h2 className="ui header">Add new Song</h2>
@@ -17,7 +22,7 @@ class Songs extends Component {
             >Add</button>
 
 
-       <h2 className='ui header'>Current Songs</h2>
+        <h2 className='ui header'>Current Songs</h2>
         {this.props.SongList.map(song =>{return (
         <div className="item" key={song.name}>
         <div className="right floated content">
@@ -27,10 +32,10 @@ class Songs extends Component {
             //apni state variable/info ko update kar rhe h us hisab se. aur state change fir mapStateToProps rerun ho rha h
             >Select</button>
         </div>
-        <div className="content">{song.name}</div>
-    </div>
-    )})
-  }
+             <div className="content">{song.name}</div>
+        </div>)})
+        }
+        <Show song={this.props.Fetcher.data}/>
    </div>
     }
 }
@@ -39,4 +44,4 @@ const mapStateToProps=(state)=>{
     return state   //whatever returned here will be assumed as props in here
 }
 
-export default connect(mapStateToProps,{SelectSong,AddSong})(Songs) 
+export default connect(mapStateToProps,{SelectSong,AddSong,FetchSong})(Songs) 
