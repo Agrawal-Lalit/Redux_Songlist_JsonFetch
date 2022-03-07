@@ -35,12 +35,12 @@ class Songs extends Component {
              <div className="content">{song.name}</div>
         </div>)})
         }
-        <Show song={this.props.Fetcher.data}/>
+        <Show song={this.props.Fetcher}/>
    </div>
     }
 }
 const mapStateToProps=(state)=>{
-    console.log(state);
+    // console.log(state);
     return state   //whatever returned here will be assumed as props in here
 }
 

@@ -19,7 +19,15 @@ export const AddSong =(songObj)=>{
     }
 }
 
-export const FetchSong= () => async dispatch =>{
-    const  response= await axios.get('https://jsonplaceholder.typicode.com/posts');
-    dispatch({type:'FETCH_DATA',payload:response});
-    }
+export function FetchSong(){
+    return (
+        async function(dispatch,getState){
+            const  response= await axios.get('https://jsonplaceholder.typicode.com/posts');
+            dispatch({type:'FETCH_DATA',payload:response.data});
+        }
+    );
+}
+// export const FetchSong= () => async dispatch =>{
+//     const  response= await axios.get('https://jsonplaceholder.typicode.com/posts');
+//     dispatch({type:'FETCH_DATA',payload:response});
+//     }

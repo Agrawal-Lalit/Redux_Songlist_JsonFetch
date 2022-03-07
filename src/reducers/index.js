@@ -21,7 +21,7 @@ import {combineReducers} from 'redux';
     return currentSong;
 }
 
-const Fetcher=(data='',action)=>{
+const Fetcher=(data=[],action)=>{
     if(action.type==='FETCH_DATA')
     return action.payload;
     return data;
