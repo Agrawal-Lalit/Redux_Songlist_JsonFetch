@@ -5,7 +5,7 @@
 
 import {combineReducers} from 'redux';
 
- const SongList =(listOfSongs=[{name:'Thoda Thoda pyar',desc:'aage bataoonga'}
+ const SongList =(listOfSongs=[{name:'Thoda Thoda pyar',desc:'Steben Ben song '}
                                ,{name:'Humnava mere ',desc:'Jubin ka gana'}
                                ,{name:'Dil Ibadat',desc:'Ye bhi h kuch'}],action)=>{
     if(action.type==='ADD_SONG')
